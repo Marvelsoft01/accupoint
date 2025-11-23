@@ -1,24 +1,27 @@
-import { Package, Clock, MapPin, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import truckloadImg from "@/assets/service-truckload.jpg";
+import expeditedImg from "@/assets/service-expedited.jpg";
+import nationwideImg from "@/assets/service-nationwide.jpg";
+import secureImg from "@/assets/service-secure.jpg";
 
 const services = [
   {
-    icon: Package,
+    image: truckloadImg,
     title: "Full Truckload",
     description: "Dedicated full truckload services for your large shipments across the continental United States.",
   },
   {
-    icon: Clock,
+    image: expeditedImg,
     title: "Expedited Shipping",
     description: "Time-sensitive deliveries with guaranteed delivery windows for your urgent freight needs.",
   },
   {
-    icon: MapPin,
+    image: nationwideImg,
     title: "Nationwide Coverage",
     description: "Operating across all 50 states with comprehensive logistics network and tracking.",
   },
   {
-    icon: Shield,
+    image: secureImg,
     title: "Insured & Secure",
     description: "Full cargo insurance and state-of-the-art security measures for complete peace of mind.",
   },
@@ -38,27 +41,28 @@ const Services = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card 
-                key={index} 
-                className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card"
-              >
-                <CardContent className="p-6">
-                  <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10">
-                    <Icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {services.map((service, index) => (
+            <Card 
+              key={index} 
+              className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card overflow-hidden"
+            >
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3 text-foreground">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
