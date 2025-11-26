@@ -1,34 +1,38 @@
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import reviewPerson1 from "@/assets/review-person-1.jpg";
+import reviewPerson2 from "@/assets/review-person-2.jpg";
+import reviewPerson3 from "@/assets/review-person-3.jpg";
+import reviewPerson4 from "@/assets/review-person-4.jpg";
 
 const reviews = [
   {
-    name: "Michael Johnson",
-    company: "Alaska Supply Co.",
+    name: "Hank Kowalski",
+    company: "Tundra Equipment Rentals",
     rating: 5,
     text: "ACCOUPOINT TRUCKING has been our go-to carrier for over 3 years. Their reliability and professionalism are unmatched. Every shipment arrives on time, every time.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    image: reviewPerson1
   },
   {
-    name: "Sarah Williams",
-    company: "Northern Logistics",
+    name: "Victoria Brennan",
+    company: "Glacier Bay Distributors",
     rating: 5,
     text: "The expedited shipping service saved our business during a critical deadline. Their team went above and beyond to ensure our cargo arrived safely and on schedule.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
+    image: reviewPerson2
   },
   {
-    name: "David Chen",
-    company: "Pacific Trade Partners",
+    name: "Marco Delgado",
+    company: "Summit Industrial Supply",
     rating: 5,
     text: "Outstanding nationwide coverage and exceptional customer service. The tracking system keeps us informed every step of the way. Highly recommended!",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    image: reviewPerson3
   },
   {
-    name: "Emily Rodriguez",
-    company: "Frontier Manufacturing",
+    name: "Catherine Harwell",
+    company: "Northstar Manufacturing",
     rating: 5,
     text: "Their insured and secure transport gave us peace of mind when shipping high-value equipment. Professional drivers and excellent communication throughout.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    image: reviewPerson4
   }
 ];
 
