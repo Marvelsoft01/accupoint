@@ -119,7 +119,6 @@ const Contact = () => {
                     <Label htmlFor="name">Full Name *</Label>
                     <Input
                       id="name"
-                      placeholder="John Smith"
                       value={formData.name}
                       onChange={(e) => handleChange("name", e.target.value)}
                       required
@@ -130,7 +129,6 @@ const Contact = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="john@company.com"
                       value={formData.email}
                       onChange={(e) => handleChange("email", e.target.value)}
                       required
@@ -144,7 +142,6 @@ const Contact = () => {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="(907) 555-0123"
                       value={formData.phone}
                       onChange={(e) => handleChange("phone", e.target.value)}
                       required
@@ -154,7 +151,6 @@ const Contact = () => {
                     <Label htmlFor="company">Company Name</Label>
                     <Input
                       id="company"
-                      placeholder="Your Company"
                       value={formData.company}
                       onChange={(e) => handleChange("company", e.target.value)}
                     />
