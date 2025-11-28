@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -43,24 +44,29 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <Link to="/services" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <Link to="/about" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#quote" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <Link to="/history" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  History
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/quote" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Get a Quote
-                </a>
-              </li>
-              <li>
-                <a href="#careers" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
