@@ -37,7 +37,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+1 (907) 555-0123", "Toll Free: 1-800-ACCUPOINT"],
+      details: ["+1 907 416 3145"],
     },
     {
       icon: Mail,
