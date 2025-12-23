@@ -1,55 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Truck } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import heroImage1 from "@/assets/hero-truck.jpg";
-import heroImage2 from "@/assets/hero-highway-sunset.jpg";
-import heroImage3 from "@/assets/hero-fleet.jpg";
-
-const heroSlides = [
-  {
-    image: heroImage1,
-    alt: "Semi-truck on highway"
-  },
-  {
-    image: heroImage2,
-    alt: "Truck on sunset highway"
-  },
-  {
-    image: heroImage3,
-    alt: "Fleet of trucks at depot"
-  }
-];
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Carousel */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 5000,
-            }),
-          ]}
-          className="w-full h-full"
-        >
-          <CarouselContent className="h-screen">
-            {heroSlides.map((slide, index) => (
-              <CarouselItem key={index} className="h-screen p-0">
-                <img 
-                  src={slide.image} 
-                  alt={slide.alt} 
-                  className="w-full h-full object-cover"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        <video
+          src="https://media.accupointruck.com/2.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
       </div>
       
