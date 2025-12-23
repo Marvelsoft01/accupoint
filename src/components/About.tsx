@@ -35,9 +35,12 @@ const About = () => {
           
           <div className="order-1 lg:order-2">
             <div className="rounded-lg overflow-hidden shadow-2xl">
-              <img 
-                src={highwayImage} 
-                alt="Highway aerial view" 
+              <video 
+                src="https://media.accupointruck.com/1.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-cover"
               />
             </div>
