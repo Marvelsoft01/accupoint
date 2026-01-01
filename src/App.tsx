@@ -9,6 +9,9 @@ import History from "./pages/History";
 import AboutUs from "./pages/AboutUs";
 import GetQuote from "./pages/GetQuote";
 import ServicesPage from "./pages/ServicesPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import SmsConsent from "./pages/SmsConsent";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +29,9 @@ const App = () => (
           <Route path="/history" element={<History />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote" element={<GetQuote />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/sms-consent" element={<SmsConsent />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
