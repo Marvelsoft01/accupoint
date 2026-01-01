@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -66,6 +66,28 @@ const Footer = () => {
               <li>
                 <Link to="/quote" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Get a Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Legal Links */}
+          <div>
+            <h4 className="text-xl font-bold mb-4">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/privacy-policy" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-conditions" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link to="/sms-consent" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  SMS Consent
                 </Link>
               </li>
             </ul>
