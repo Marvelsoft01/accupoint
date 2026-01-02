@@ -8,9 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const GetQuote = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     // Contact Info
     name: "",
@@ -40,12 +42,52 @@ const GetQuote = () => {
     specialRequirements: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Quote Request Submitted!",
-      description: "We'll send you a detailed quote within 2 hours.",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-form-email", {
+        body: { formType: "quote", formData },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll send you a detailed quote within 2 hours.",
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        pickupAddress: "",
+        pickupCity: "",
+        pickupState: "",
+        pickupZip: "",
+        pickupDate: "",
+        deliveryAddress: "",
+        deliveryCity: "",
+        deliveryState: "",
+        deliveryZip: "",
+        deliveryDate: "",
+        serviceType: "",
+        freightType: "",
+        weight: "",
+        dimensions: "",
+        specialRequirements: "",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to submit quote request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
@@ -353,9 +395,9 @@ const GetQuote = () => {
                   </div>
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full">
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                   <Calendar className="mr-2 h-5 w-5" />
-                  Request Quote
+                  {isSubmitting ? "Submitting..." : "Request Quote"}
                 </Button>
 
                 <p className="text-center text-sm text-muted-foreground mt-4">

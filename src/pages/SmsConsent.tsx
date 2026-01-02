@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { MessageSquare, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const generateSecurityQuestion = () => {
   const operations = [
@@ -109,16 +110,28 @@ const SmsConsent = () => {
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Subscription Successful!",
-      description: "You have been subscribed to SMS notifications from ACCOUPOINT TRUCKING.",
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke("send-form-email", {
+        body: { formType: "sms-consent", formData },
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Subscription Successful!",
+        description: "You have been subscribed to SMS notifications from ACCOUPOINT TRUCKING.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to submit. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -130,8 +143,8 @@ const SmsConsent = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="max-w-2xl mx-auto text-center">
               <div className="bg-card rounded-2xl shadow-xl p-12 border border-border">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="h-10 w-10 text-green-600" />
+                <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />
                 </div>
                 <h1 className="text-3xl font-bold text-foreground mb-4">
                   Subscription Confirmed!
