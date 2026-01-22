@@ -175,7 +175,7 @@ const TermsConditions = () => {
                   <p><strong>ACCOUPOINT TRUCKING</strong></p>
                   <p>7125 Old Seward Hwy Ste 1</p>
                   <p>Anchorage, AK 99518</p>
-                  <p>Phone: +1 907 416 3145</p>
+                  <p>Phone: +1 862 268-9213</p>
                   <p>Email: info@accupointruck.com</p>
                 </div>
               </section>
