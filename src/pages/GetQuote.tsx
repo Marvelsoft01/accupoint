@@ -198,7 +198,7 @@ const GetQuote = () => {
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="+1 907 416 3145"
+                        placeholder="+1 862 268-9213"
                         value={formData.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
                         required
